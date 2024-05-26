@@ -14,12 +14,26 @@ class UserSearchArticlesController < ApplicationController
   end
 
   def create
-    @user_ip = UserIp.find_by(ip: params[:user_search_article][:ip])
-    @article = Article.find_by(name: params[:user_search_article][:name])
+    unless  UserIp.find_by(ip: params[:user_search_article][:ip])
+      @user_ip = UserIp.create(ip: params[:user_search_article][:ip])
+    else
+      @user_ip = UserIp.find_by(ip: params[:user_search_article][:ip])
+    end
+
+    
+
+    unless Article.find_by(name: params[:user_search_article][:name])
+      @article = Article.create(name: params[:user_search_article][:name])
+      @article.update_number_of_search
+    else
+      @article = Article.find_by(name: params[:user_search_article][:name])
+      @article.update_number_of_search
+    end
+    
     @user_search_article = UserSearchArticle.new(user_ip: @user_ip, article: @article)
     respond_to do |format|
-      if @article.save
-        format.html { redirect_to articles_path, notice: 'Article create successfully' }
+      if @user_search_article.save
+        format.html { redirect_to new_user_search_article_path, notice: 'Article create successfully' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

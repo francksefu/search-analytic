@@ -3,8 +3,7 @@
   <%= form_with model: @user_search_article, url: user_search_articles_path, method: :post, class: 'form', local: true do |form| %>
   <%= form.label :name %><br>
   <%= form.text_field :name, id: 'name' %>
-
-  <%= form.submit %>
+  <%= form.text_field :ip, value: request.remote_ip %>
   <% end %>
 </div>
 
@@ -20,4 +19,10 @@
       <td> <%= article.number_of_search %> </td>
     </tr>
   <% end %>
+
+  <div id='name_area' style='display: none;'>
+    <% @articles.each do |article| %>
+      <%= article.name %> ::
+    <% end %>
+  </div>
 </table>
