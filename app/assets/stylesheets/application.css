@@ -78,3 +78,22 @@ label {
   background-color: black;
   color: white;
 }
+
+#table-user-articles {
+  display: none;
+  z-index: 5;
+  position: absolute;
+  width: 80%;
+  height: 300px;
+  top: calc((100% - 300px)/2);
+  right: 10%;
+}
+
+#cross {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  display: none;
+  font-size: 60px;
+  cursor: pointer;
+}
