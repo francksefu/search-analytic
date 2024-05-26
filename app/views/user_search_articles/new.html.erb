@@ -8,8 +8,8 @@
   <% end %>
 </div>
 
-<h2 id='moi'> Articles </h2>
-<table class="customers">
+<h2> <span id="button-articles">Articles</span> | <span id="button-articles-user">Articles by users</span> </h2>
+<table class="customers" id="articles">
   <tr>
     <th>Name</th>
     <th> Number of search</th>
@@ -19,6 +19,20 @@
     <tr>
       <td> <%= article.name %>
       <td> <%= article.number_of_search %> </td>
+    </tr>
+  <% end %>
+</table>
+
+<table class="customers" id="articles-user">
+  <tr>
+    <th>IP Adress</th>
+    <th> Actions</th>
+  </tr>
+  <% #Here we decide to just show the last 100 users, no need to show all users%>
+  <% @user_ips.limit(100).each do |user_ip| %>
+    <tr>
+      <td> <%= user_ip.ip %>
+      <td> <button> view </button> </td>
     </tr>
   <% end %>
 </table>

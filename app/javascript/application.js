@@ -17,3 +17,21 @@ name.addEventListener('keyup', () => {
 function myStopFunction() {
   clearTimeout(timeOut);
 }
+
+const buttonArticles = document.querySelector('#button-articles');
+const buttonArticlesUser = document.querySelector('#button-articles-user');
+const tableArticles =  document.querySelector('#articles');
+const tableArticlesUser = document.querySelector('#articles-user');
+buttonArticles.addEventListener('click', () => {
+  tableArticles.style.display = 'table';
+  tableArticlesUser.style.display = 'none';
+  buttonArticles.style.textDecoration = 'underline';
+  buttonArticlesUser.style.textDecoration = 'none';
+})
+
+buttonArticlesUser.addEventListener('click', () => {
+  tableArticles.style.display = 'none';
+  tableArticlesUser.style.display = 'table';
+  buttonArticles.style.textDecoration = 'none';
+  buttonArticlesUser.style.textDecoration = 'underline';
+})
