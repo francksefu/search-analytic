@@ -1,9 +1,10 @@
-<h1> Welcome here, Do yoiiu looking for something ? </h1>
-<div>
+<h1> Welcome here, Do you looking for article ? </h1>
+<div class="form">
   <%= form_with model: @user_search_article, url: user_search_articles_path, method: :post, class: 'form', local: true do |form| %>
   <%= form.label :name %><br>
-  <%= form.text_field :name, id: 'name' %>
-  <%= form.text_field :ip, value: request.remote_ip %>
+  <%= form.text_field :name, id: 'name' %><br>
+  <%= form.label :Ip %><br>
+  <%= form.text_field :ip, value: request.remote_ip, :disabled => true %>
   <% end %>
 </div>
 
