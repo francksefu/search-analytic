@@ -1,0 +1,23 @@
+<h1> Welcome here, Do yoiiu looking for something ? </h1>
+<div>
+  <%= form_with model: @user_search_article, url: user_search_articles_path, method: :post, class: 'form', local: true do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name, id: 'name' %>
+
+  <%= form.submit %>
+  <% end %>
+</div>
+
+<h2 id='moi'> Articles </h2>
+<table class="customers">
+  <tr>
+    <th>Name</th>
+    <th> Number of search</th>
+  </tr>
+  <% @articles.each do |article| %>
+    <tr>
+      <td> <%= article.name %>
+      <td> <%= article.number_of_search %> </td>
+    </tr>
+  <% end %>
+</table>

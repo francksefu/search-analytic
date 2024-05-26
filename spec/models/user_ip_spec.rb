@@ -6,6 +6,6 @@ RSpec.describe UserIp, type: :model do
 
   it 'name should be present' do
     subject.ip = nil
-    expect(subject).to_not be valid
+    expect(subject).to_not be_valid
   end
 end

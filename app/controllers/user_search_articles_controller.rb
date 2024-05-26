@@ -1,10 +1,16 @@
 class UserSearchArticlesController < ApplicationController
   def index
+    @articles = Article.all.order(number_of_search: :desc)
     @user_search_articles = UserSearchArticle.all
   end
 
   def new
+    @names = []
+    @articles = Article.all.order(number_of_search: :desc)
     @user_search_article = UserSearchArticle.new
+    @articles.each do |article|
+      @names.push(article.name)
+    end
   end
 
   def create
