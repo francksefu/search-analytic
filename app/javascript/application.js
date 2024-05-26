@@ -3,9 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 const name = document.querySelector('#name');
-const nameArea = document.querySelector('#name_area');
-const arrayOfName = nameArea.innerHTML.split('::');
-console.log(arrayOfName[1]);
+
 let timeOut = 0;
 name.addEventListener('keyup', () => {
   myStopFunction();

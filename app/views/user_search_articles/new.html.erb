@@ -13,16 +13,11 @@
     <th>Name</th>
     <th> Number of search</th>
   </tr>
-  <% @articles.each do |article| %>
+  <% #Here we decide to just show 100 article mostly search, no need to show all articles%>
+  <% @articles.limit(100).each do |article| %>
     <tr>
       <td> <%= article.name %>
       <td> <%= article.number_of_search %> </td>
     </tr>
   <% end %>
-
-  <div id='name_area' style='display: none;'>
-    <% @articles.each do |article| %>
-      <%= article.name %> ::
-    <% end %>
-  </div>
 </table>
