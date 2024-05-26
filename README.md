@@ -56,8 +56,12 @@ Your goal is to record their input in realtime and ultimately display analytics 
 <!-- LIVE DEMO -->
 ## 🚀 Live Demo <a name="live-demo"></a>
 >
-- [Live Demo Link]
+- [Live Demo Link] (https://juice-search-analytic.onrender.com/)<br>
 -[Live video Demo Link]
+
+https://github.com/francksefu/search-analytic/assets/90141102/37c62d3b-a2d9-4ec1-8ed5-ee4d9e9555b9
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
