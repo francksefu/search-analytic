@@ -1,3 +1,4 @@
+<div id='container'>
 <h1> Welcome here, Do you looking for article ? </h1>
 <div class="form">
   <%= form_with model: @user_search_article, url: user_search_articles_path, method: :post, class: 'form', local: true do |form| %>
@@ -8,8 +9,8 @@
   <% end %>
 </div>
 
-<h2 id='moi'> Articles </h2>
-<table class="customers">
+<h2> <span id="button-articles">Articles</span> | <span id="button-articles-user">Articles by users</span> </h2>
+<table class="customers" id="articles">
   <tr>
     <th>Name</th>
     <th> Number of search</th>
@@ -22,3 +23,21 @@
     </tr>
   <% end %>
 </table>
+
+<table class="customers" id="articles-user">
+  <tr>
+    <th>IP Adress</th>
+    <th> Actions</th>
+  </tr>
+  <% #Here we decide to just show the last 100 users, no need to show all users%>
+  <% @user_ips.limit(100).each do |user_ip| %>
+    <tr>
+      <td> <%= user_ip.ip %></td>
+      <td> <button id='<%= user_ip.id %>' class="button-view"> view </button> </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<div id="table-user-articles"> </div>
+<div id='cross'> &#10005;</div>

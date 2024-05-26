@@ -17,6 +17,27 @@ h2, h1 {
   text-align: center;
 }
 
+span {
+  cursor: pointer;
+}
+
+#articles-user {
+  display: none;
+}
+
+#button-articles {
+  text-decoration: underline;
+}
+
+table {
+  margin: 20px 10%;
+  width: 80%;
+}
+
+span:hover {
+  color: darkcyan;
+}
+
 .form {
   width: 60%;
   margin: 10px 20%;
@@ -39,8 +60,6 @@ label {
   font-family: 'Courier New', Courier, monospace;
   color: black;
   border-collapse: collapse;
-  margin: 20px 10%;
-  width: 80%;
 }
 
 .customers td, .customers th {
@@ -58,4 +77,23 @@ label {
   text-align: left;
   background-color: black;
   color: white;
+}
+
+#table-user-articles {
+  display: none;
+  z-index: 5;
+  position: absolute;
+  width: 80%;
+  height: 300px;
+  top: calc((100% - 300px)/2);
+  right: 10%;
+}
+
+#cross {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  display: none;
+  font-size: 60px;
+  cursor: pointer;
 }
