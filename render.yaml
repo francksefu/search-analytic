@@ -1,0 +1,22 @@
+databases:
+  - name: search-analytic
+    databaseName: search_engine_ip2g
+    user: search_engine_ip2g_user
+    plan: free
+
+services:
+  - type: web
+    name: search-analytic
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    # preDeployCommand: "./bin/rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "./bin/rails server"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: search-analytic
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      
