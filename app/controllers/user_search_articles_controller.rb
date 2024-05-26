@@ -5,7 +5,7 @@ class UserSearchArticlesController < ApplicationController
   end
 
   def new
-    @user_ips = UserIp.all;
+    @user_ips = UserIp.all
     @articles = Article.all.order(number_of_search: :desc)
     @user_search_article = UserSearchArticle.new
   end
