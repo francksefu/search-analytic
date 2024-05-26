@@ -10,22 +10,19 @@ class UserSearchArticlesController < ApplicationController
   end
 
   def create
-    unless  UserIp.find_by(ip: params[:user_search_article][:ip])
-      @user_ip = UserIp.create(ip: params[:user_search_article][:ip])
-    else
-      @user_ip = UserIp.find_by(ip: params[:user_search_article][:ip])
-    end
+    @user_ip = UserIp.find_by(
+      ip: params[:user_search_article][:ip]
+    ) || UserIp.create(
+      ip: params[:user_search_article][:ip]
+    )
 
-    
+    @article = Article.find_by(
+      name: params[:user_search_article][:name]
+    ) || Article.create(
+      name: params[:user_search_article][:name]
+    )
+    @article.update_number_of_search
 
-    unless Article.find_by(name: params[:user_search_article][:name])
-      @article = Article.create(name: params[:user_search_article][:name])
-      @article.update_number_of_search
-    else
-      @article = Article.find_by(name: params[:user_search_article][:name])
-      @article.update_number_of_search
-    end
-    
     @user_search_article = UserSearchArticle.new(user_ip: @user_ip, article: @article)
     respond_to do |format|
       if @user_search_article.save
